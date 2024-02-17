@@ -112,7 +112,7 @@ func (sw *{{ $WRAPPER_CLASS }}) {{ CamelToPascal .Name }}(w http.ResponseWriter,
     {{ end }}
     var handler http.Handler
     handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        ctx := oapi_rt.NewContext(r.Context(), r)
+        ctx := oapi_rt.NewContext(r.Context(), w, r)
 
         {{ with .Response }}
         {{ range .Cases }}
