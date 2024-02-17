@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
-	oapi_rt "github.com/mworzala/openapi-go/pkg/oapi-rt"
+	oapi_rt "github.com/ZakShearman/openapi-go/pkg/oapi-rt"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 )
