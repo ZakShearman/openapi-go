@@ -102,6 +102,9 @@ func (g *Generator) genOperation(path, method string, op *oapi.Operation) (*Oper
 			}
 			result.QueryParams = append(result.QueryParams, tmpl)
 
+			if param.Schema == nil {
+				param.Schema = &oapi.Schema{Type: "string"}
+			}
 			switch param.Schema.Type {
 			case "string":
 				// Already handled by above
@@ -224,8 +227,8 @@ func (g *Generator) genSingleRequestBody(baseName string, model *oapi.RequestBod
 			if err != nil {
 				panic(err)
 			}
-			if ty.GoType != "[]byte" {
-				panic(fmt.Errorf("'%s'.%s: raw body must be []byte, got %s", "PATHTODO", "METHODTODO", ty.GoType))
+			if ty.GoType != "[]byte" && ty.GoType != "io.Reader" {
+				panic(fmt.Errorf("'%s'.%s: raw body must be []byte or io.Reader, got %s", "PATHTODO", "METHODTODO", ty.GoType))
 			}
 			return &RequestBodyTemplate{
 				GoType: ty.GoType,
