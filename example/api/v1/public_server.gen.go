@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	oapi_rt "github.com/ZakShearman/openapi-go/pkg/oapi-rt"
+	oapi_rt "github.com/mworzala/openapi-go/pkg/oapi-rt"
 	"github.com/go-chi/chi/v5"
 	"go.uber.org/fx"
 	"go.uber.org/zap"

@@ -1,3 +1,14 @@
+# Fork specific information
+
+When using this fork, add the following to your go.mod:
+```
+replace github.com/mworzala/openapi-go => github.com/ZakShearman/openapi-go VERSION_HERE
+```
+e.g.
+```
+replace github.com/mworzala/openapi-go => github.com/ZakShearman/openapi-go v0.0.0-20250320093544-f83875d717af
+```
+
 # openapi-go
 An opinionated openapi server code generator for go
 

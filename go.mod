@@ -1,4 +1,4 @@
-module github.com/ZakShearman/openapi-go
+module github.com/mworzala/openapi-go
 
 go 1.20
 

@@ -12,8 +12,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/ZakShearman/openapi-go/internal/pkg/util"
-	"github.com/ZakShearman/openapi-go/pkg/oapi"
+	"github.com/mworzala/openapi-go/internal/pkg/util"
+	"github.com/mworzala/openapi-go/pkg/oapi"
 )
 
 var (

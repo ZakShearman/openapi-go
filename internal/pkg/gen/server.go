@@ -2,8 +2,8 @@ package gen
 
 import (
 	"fmt"
-	"github.com/ZakShearman/openapi-go/internal/pkg/util"
-	"github.com/ZakShearman/openapi-go/pkg/oapi"
+	"github.com/mworzala/openapi-go/internal/pkg/util"
+	"github.com/mworzala/openapi-go/pkg/oapi"
 	"strconv"
 	"strings"
 )
