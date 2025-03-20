@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/go-chi/chi/v5"
 	oapi_rt "github.com/ZakShearman/openapi-go/pkg/oapi-rt"
+	"github.com/go-chi/chi/v5"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 )
@@ -67,7 +67,7 @@ func (sw *PublicServerWrapper) GetTestPlainResp(w http.ResponseWriter, r *http.R
 
 	var handler http.Handler
 	handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		ctx := oapi_rt.NewContext(r.Context(), r)
+		ctx := oapi_rt.NewContext(r.Context(), w, r)
 
 		err := sw.handler.GetTestPlainResp(ctx, testing)
 		if err != nil {
@@ -101,6 +101,7 @@ func (sw *PublicServerWrapper) GetMapWorld(w http.ResponseWriter, r *http.Reques
 
 	// Read Body
 	var body MapManualTriggerWebhook
+
 	if err = json.NewDecoder(r.Body).Decode(&body); err != nil {
 		oapi_rt.WriteGenericError(w, err)
 		return
@@ -108,7 +109,7 @@ func (sw *PublicServerWrapper) GetMapWorld(w http.ResponseWriter, r *http.Reques
 
 	var handler http.Handler
 	handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		ctx := oapi_rt.NewContext(r.Context(), r)
+		ctx := oapi_rt.NewContext(r.Context(), w, r)
 
 		code200, code201, err := sw.handler.GetMapWorld(ctx, id, &abc, accept, &body)
 		if err != nil {

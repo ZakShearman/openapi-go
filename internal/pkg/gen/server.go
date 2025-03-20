@@ -2,11 +2,10 @@ package gen
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
-
 	"github.com/ZakShearman/openapi-go/internal/pkg/util"
 	"github.com/ZakShearman/openapi-go/pkg/oapi"
+	"strconv"
+	"strings"
 )
 
 type ServerTemplate struct {
@@ -44,6 +43,7 @@ type QueryParamTemplate struct {
 	Name     string
 	Required bool
 
+	GoType       string
 	NumberGoType string
 	StructGoType string
 }
@@ -112,6 +112,8 @@ func (g *Generator) genOperation(path, method string, op *oapi.Operation) (*Oper
 				tmpl.NumberGoType = "int"
 			case "number":
 				tmpl.NumberGoType = "float64"
+			case "boolean":
+				tmpl.GoType = "bool"
 			case "object":
 				if !param.Explode {
 					return nil, fmt.Errorf("'%s'.%s: query param '%s' is an object, but explode is not set", path, method, param.Name)
